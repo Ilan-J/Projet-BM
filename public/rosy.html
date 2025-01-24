@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A Good Song Never Dies</title>
+
+  <script src="rosy/music.js"></script>
+</head>
+<body>
+
+<!--objectif : quand on clique sur un bouton, un son apparaît aléatoirement
+code JS pour envoyer un son-->
+
+  <h1>A Good Song Never Dies - Saint Motel</h1>
+  <button id="playButton">Jouer les Notes</button>
+
+  <script>
+    // Fonction pour jouer un son (simulation des notes)
+    function playSound(note) {
+      console.log("Playing:", note);
+      // Simulation avec un son
+      const audio = new Audio(`sounds/${note}.mp3`); // Assurez-vous que les fichiers audio sont dans un dossier "sounds"
+      audio.play();
+    }
+
+    // Fonction pour jouer toutes les notes en séquence
+    function playNotesSequentially() {
+      let delay = 0; // Délai initial
+      const interval = 500; // 500ms entre chaque note
+
+      notes.forEach((note, index) => {
+        setTimeout(() => {
+          playSound(note);
+        }, delay);
+        delay += interval; // Augmente le délai pour chaque note
+      });
+    }
+
+    // Événement sur le bouton
+    document.getElementById("playButton").addEventListener("click", playNotesSequentially);
+  </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<head>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lecture en WAV</title>
+    </head>
+</head>
+
+<body>
+
+    <script>
+        const startAudioButton = document.getElementById('startAudio');
+        startAudioButton.addEventListener('click', () => {
+            const audioElements = document.querySelectorAll('audio');
+            audioElements.forEach(audio => {
+                audio.play().catch(error => {
+                    console.error("Lecture de l'audio bloquée : ", error);
+                });
+            });
+        });
+    </script>
+
+    <h1>List of songs:</h1>
+
+    <div class="figure">
+        <figure>
+            <figcaption>Andromeda - Jacoo</figcaption>
+            <audio controls src="wav/Jacoo - Andromeda.mp3"></audio>
+            <a href="/andromeda.mp3"></a>
+        </figure>
+
+        <figure>
+            <figcaption>Asturias (remix)</figcaption>
+            <audio controls src="wav/Asturias (Remix).mp3"></audio>
+            <a href="/asturias.mp3"></a>
+        </figure>
+
+        <figure>
+            <figcaption>Clown Horn</figcaption>
+            <audio controls src="wav/clown horn - sound effect.mp3"></audio>
+            <a href="/clown_horn.mp3"></a>
+        </figure>
+
+        <figure>
+            <figcaption>Cucaracha</figcaption>
+            <audio controls src="wav/Cucaracha (Remix).mp3"></audio>
+            <a href="/cucaracha.mp3"></a>
+        </figure>
+
+        <figure>
+            <figcaption>Let Love Win - TheFatRat</figcaption>
+            <audio controls src="wav/TheFatRat & Anjulie - Let Love Win.mp3"></audio>
+            <a href="/let_love_win.wmp3"></a>
+        </figure>
+
+        <figure>
+            <figcaption>Lost in time - Wyclef Jean</figcaption>
+            <audio controls src="wav/Lost in Time.mp3"></audio>
+            <a href="/lost_in_time.mp3"></a>
+        </figure>
+
+        <figure>
+            <figcaption>Saint Motel - A Good Song Never Dies</figcaption>
+            <audio controls src="wav/SAINT MOTEL - A Good Song Never Dies.mp3"></audio>
+            <a href="/saint_motel.mp3"></a>
+        </figure>
+
+        <figure>
+            <figcaption>Takeda Lullaby</figcaption>
+            <audio controls src="wav/Takeda Lullaby.mp3"></audio>
+            <a href="/takeda_lullaby.mp3"></a>
+        </figure>
+
+    </div>
+
+</body>
+
+</html

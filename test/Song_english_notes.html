@@ -1,0 +1,72 @@
+<!--objectif : quand on clique sur un bouton, un son apparaît aléatoirement
+code JS pour envoyer un son-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Good Song Never Dies</title>
+</head>
+<body>
+  <h1>A Good Song Never Dies - Saint Motel</h1>
+  <button id="playButton">Jouer les Notes</button>
+
+  <script>
+    // Liste des notes et des répétitions
+    const notes = [
+      "A", "G#", "G", "F", "C#",
+      ..."D".repeat(13),           // Répéter 13 fois "D"
+      "G", ..."D".repeat(35), "D",
+      "C#", "C#", "C", "C", "B", "A#",
+      "D", "D", "C#", "C#", "C", "C", "B", "A#",
+      "D", "D",
+      "F", "G", "A",
+      ..."D".repeat(6), "F", "G", "A", ..."D".repeat(2), "F", "G", "A",
+      ..."D".repeat(5), "F", "G", "A",
+      ..."D".repeat(3),
+      "F", ..."D".repeat(3), "F", "G", "A", "D",
+      "D", "F", "G", "A",
+      ..."D".repeat(7), "F", "G", "A",
+      "B", "D", "F", "G", ..."A".repeat(2),
+      "D", "D", ..."C".repeat(3), ..."A#".repeat(2), "A", "A#", "A",
+      ..."D".repeat(3), "F", ..."D".repeat(3), "F", "G", "A",
+      ..."D".repeat(4), "C", ..."A#".repeat(3), ..."G".repeat(3), "F", "G",
+      ..."D".repeat(3), "C", "A#", "A", "F", "G",
+      ..."D".repeat(2), "F", "E", "D", "C", "D",
+      ..."D".repeat(3), "F", "G", "F", "A", "G",
+      ..."C".repeat(3), "A", "G", "F", "D", "A", ..."C".repeat(2),
+      "A", "G", "F", "D", "G", ..."C".repeat(2),
+      "A", "G", "F", ..."D".repeat(3), ..."C#".repeat(2), "C",
+      ..."D".repeat(2), "A", "G", "F", ..."D".repeat(3), ..."C#".repeat(2),
+      ..."C".repeat(3), "A", "G", "F", "D", "A", ..."C".repeat(2),
+      "A", "G", "F", "D", "G", ..."C".repeat(2), "A", "G", "F", ..."D".repeat(2),
+      "A", "G#", "G", "F", "C#"
+    ];
+
+    // Fonction pour jouer un son (simulation des notes)
+    function playSound(note) {
+      console.log("Playing:", note);
+      // Simulation avec un son
+      const audio = new Audio(`sounds/${note}.mp3`); // Assurez-vous que les fichiers audio sont dans un dossier "sounds"
+      audio.play();
+    }
+
+    // Fonction pour jouer toutes les notes en séquence
+    function playNotesSequentially() {
+      let delay = 0; // Délai initial
+      const interval = 500; // 500ms entre chaque note
+
+      notes.forEach((note, index) => {
+        setTimeout(() => {
+          playSound(note);
+        }, delay);
+        delay += interval; // Augmente le délai pour chaque note
+      });
+    }
+
+    // Événement sur le bouton
+    document.getElementById("playButton").addEventListener("click", playNotesSequentially);
+  </script>
+</body>
+</html>
