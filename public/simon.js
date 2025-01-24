@@ -147,16 +147,22 @@ function andYouFailed() {
       time: "+600",
     });
   }
-  midiInput.channels[1].addOneTimeListener("noteoff", (evt) => {
+  midiInput.channels[1].addListener("noteoff", (evt) => {
     const key = evt.note.number;
     for (const green of greensqr)
       if (key === green) {
         simonstart();
+        midiInput.channels[1].removeListener();
         return;
       }
-    console.log("gamestopped");
-    launchPadClear();
-    window.location = "/";
+    for (const red of redsqr)
+      if (key === red) {
+        console.log("gamestopped");
+        launchPadClear();
+        window.location = "/";
+        midiInput.channels[1].removeListener();
+        return;
+      }
   });
 }
 
